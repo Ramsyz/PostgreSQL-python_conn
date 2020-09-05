@@ -11,12 +11,16 @@ print("database connected")
 #for row in rows:
     #print('first_name =', row[0])
     #print('last_name =', row[1])
-    #print('language =', row[2])
 
 #print('successful')
 #con.close
 
-
+#cur = con.cursor()
+#cur.execute("INSERT into language(language_id,name) VALUES(8,'Spanish')");
+#con.commit()
+#print("Record inserted successful")
+#con.close()
+            
 cur = con.cursor()
 cur.execute("UPDATE language set name = 'German' WHERE language_id=6")
 con.commit()
@@ -29,8 +33,22 @@ rows = cur.fetchall()
 for row in rows:
     print('language_id =', row[0])
     print('name =', row[1])
-    #print('language =', row[2])
 
 print('successful')
-con.close
+
+cur.execute('DELETE from language where language_id=8')
+con.commit()
+print('Total deleted rows: ', cur.rowcount)
+cur = con.cursor()
+cur.execute("SELECT * from language")
+rows = cur.fetchall()
+
+for row in rows:
+    print('language_id =', row[0])
+    print('name =', row[1])
+
+print('deletion success')
+con.close()
+
+
 
