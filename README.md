@@ -6,15 +6,15 @@ To connect to your database,create a connection object representing the database
 
 Next, create a cursor object to help you in execution of your SQL statements.
 
-`import psycopg2
+`import psycopg2`
 
-con = psycopg2.connect(database="postgres", user="postgres", password="", host="127.0.0.1", port="5432")
+`con = psycopg2.connect(database="postgres", user="postgres", password="", host="127.0.0.1", port="5432")`
 
-print("Database opened successfully")`
+`print("Database opened successfully")`
 
-`cur = con.cursor()
-cur.execute("SELECT first_name, last_name from actor")
-rows = cur.fetchall()
+`cur = con.cursor()`
+`cur.execute("SELECT first_name, last_name from actor")`
+`rows = cur.fetchall()`
 
 for row in rows:
     print('first_name =', row[0])
