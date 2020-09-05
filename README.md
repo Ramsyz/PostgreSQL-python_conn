@@ -100,6 +100,22 @@ Run the DELETE statement to perform the deletion.
 
 
 
+# Extract the table headers
+
+`headers = [i[0] for i in cursor.description]`
+
+`# Open CSV file for writing.`
+ `csvFile = csv.writer(open(filePath + fileName, 'w', newline=''),`
+                             `delimiter=',', lineterminator='\r\n',`
+                            ` quoting=csv.QUOTE_ALL, escapechar='\\')`
+
+`# Add the headers and data to the CSV file.`
+ `csvFile.writerow(headers)`
+ `csvFile.writerows(results)`
+`
+` # Message stating export successful.`
+  
+  `print("Data export successful.")`
 
 
 
